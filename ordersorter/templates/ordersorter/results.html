@@ -1,0 +1,126 @@
+{% extends "myprojects/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+<h1>Survey results</h1>
+          
+    {% if question %}
+        <h3>{{ question }}</h3>
+        <p></p>
+        <ul class="list-group">
+            {% for stat in surveyStats %}
+                <li class="list-group-item" id="result">{{ stat }}</li>
+            {% endfor %}
+          </ul>
+        <div id="winner">{{ winnerMessage }}</div>
+        <p></p>
+
+        <table class="table table-dark" id="scoreTable">
+            <thead><h3>Total Scores</h3></thead>
+            <thead>
+            <tr>
+                {% for key, value in scoresDict.items %}
+                    <th scope="col">{{ key }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for key, value in scoresDict.items %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+        <p></p>
+        <form method="POST">
+            {% csrf_token %}
+            <table class="table table-dark table-hover" id="responseTable" name="responseTable">
+                <thead><h3>Survey Responses</h3></thead>
+                <thead>
+                <tr>
+                    {% if question.user == user %}
+                    <th scope="col">Delete</th>
+                    {% endif %}
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    {% for i in range %}
+                        <th scope="col">{{ i }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                    {% for result in question.results.all %}
+                    <tr>
+                        {% if question.user == user %}
+                        <td><button type="button" class="openDeleteWarning btn btn-danger" data-toggle="modal" data-target="#exampleModal" data-id="{{ result.id }}" data-name="{{ result }}" aria-label="Close" name="{{ result.id }}" value="{{ result }}">Delete</button></td>
+                        {% endif %}
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ result.name }}</td>
+                        {% for item in result.order.items %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    {% else %}
+        <div>No Question Found</div>
+    {% endif %}
+
+    <!-- Modal-Will appear when deletebutton is tapped -->
+    <form method="POST">
+        {% csrf_token %}
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete result?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete the result?</p>
+                    <input type="text" name="resultId" id="resultId" value=""/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button id="deleteButton" type="submit" class="btn btn-danger" name="delete" value="hello">Delete</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+{% endblock %}
+
+
+{% block style %}
+<link href="{% static 'ordersorter/styles.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'ordersorter/results.js' %}"></script>
+    <script>
+        // this is for the modal that appears when delete is tapped 
+        $(document).on("click", ".openDeleteWarning", function () {
+            var resultId = $(this).data('id');
+            var name = $(this).data('name');
+            
+            var output = `Are you sure you want to delete the result: ${name}?`;
+            $(".modal-body").html( output );
+            // $(".modal-footer #deleteButton").name = resultId;
+            // $(".modal-footer #deleteButton").vale = name;
+
+            // I could not figure out how to change the name of the button, so I changed the value... 
+            // I needed to change the code on the python side to make it work out.
+            $('#deleteButton').val(resultId);
+        });
+    </script>
+{% endblock %}

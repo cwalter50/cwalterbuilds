@@ -1,0 +1,29 @@
+{% extends "myprojects/layout.html" %}
+
+{% block body %}
+<div class="page-wrap d-flex flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <span class="display-1 d-block">500</span>
+                <span class="display-5 d-block">Opps! Internal Server Error!</span>
+                <div class="mb-4 lead">Unfortunately we're having trouble loading the page you are looking for. Please come back in a while.</div>
+                <a href="/" class="btn btn-link">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block style %}
+<style>
+    body {
+    background: #dedede;
+    }
+    .page-wrap {
+        min-height: 100vh;
+    }
+</style>
+{% endblock %}
+

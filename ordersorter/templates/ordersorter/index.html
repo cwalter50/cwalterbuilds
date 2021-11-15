@@ -1,0 +1,81 @@
+{% extends "myprojects/layout.html" %}
+{% load static %}
+
+{% block body %}
+<h1>OrderSorter</h1>
+
+{% if user.is_authenticated %}
+
+
+<div>
+    <a href="{% url 'ordersorter:create' %}" class="btn btn-primary">Create New Survey</a>
+</div>
+{% else %}
+<div>
+    <p>You be signed in to create a survey</p>
+</div>
+
+{% endif %}
+
+<div>
+    <h3>My Surveys</h3>
+</div>
+<ul class="list-group">
+    {% if user_questions %}
+        <div class="card-columns">
+        {% for question in user_questions.all %}
+            <div class="card" style="background-color: rgba(255, 255, 255, .10);">
+                <div class="card-body">
+                <h5 class="card-title">{{ question }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ question.description }}</h6>
+                <p class="card-text">Fill this in with some results about the survey</p>
+                <a href="{% url 'ordersorter:results' question.id %}" class="card-link">Results</a>
+                <a href="{% url 'ordersorter:poll' question.id %}" class="card-link">Survey</a>
+                <a href="{% url 'ordersorter:edit' question.id %}" class="card-link">Edit</a>
+                </div>
+            </div>
+            
+        {% endfor %}
+        </div>
+    {% else %}
+        <p>No user polls are available.</p>
+    {% endif %}
+    
+</ul>
+
+<div>
+    <h3>Community Surveys</h3>
+</div>
+<ul class="list-group">
+    {% if questions %}
+        <div class="card-columns">
+        {% for question in questions.all %}
+            <div class="card" style="background-color: rgba(255, 255, 255, .10);">
+                <div class="card-body">
+                <h5 class="card-title">{{ question }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ question.description }}</h6>
+                <p class="card-text">Fill this in with some results about the survey</p>
+                <a href="{% url 'ordersorter:results' question.id %}" class="card-link">Results</a>
+                <a href="{% url 'ordersorter:poll' question.id %}" class="card-link">Survey</a>
+                {% if question.user == user %}
+                <a href="{% url 'ordersorter:edit' question.id %}" class="card-link">Edit</a>
+                {% endif %}
+
+                </div>
+            </div>
+            
+        {% endfor %}
+        </div>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+    
+</ul>
+
+
+
+{% endblock %}
+
+{% block style %}
+<link href="{% static 'ordersorter/styles.css' %}" rel="stylesheet">
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "myprojects/layout.html"%}
+
+{% block body %}
+<h1>Create a New Poll</h1>
+<h3>{{ message }}</h3>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <div class="btn-right">
+    <input class="btn btn-primary" type="submit" value="Create">
+  </div>
+</form>
+  
+{% endblock %}
+

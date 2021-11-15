@@ -1,0 +1,54 @@
+{% extends "myprojects/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+<h2 class="display-4"> {{ question }}</h2>
+<div class="description">{{ question.description }}</div>
+<p></p>
+
+    {% if question.options %}
+        <form class="form-group" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" class="form-control" id="resultName" name="resultName" placeholder="Name" required>
+            </div>
+            <div class="description">Order the items: top is the best, bottom is the worst</div>
+            <div id="list">
+            {% for option in question.options.all %}
+                
+                <div class="draggable" contenteditable="true" id="order" name="order">{{ option }}
+                    <input type="hidden" id="hidden" name="order" value="{{ option }}">
+                </div>
+            {% endfor %}
+            </div>
+            <div class="center">
+                <button id="submitPollButton" type="submit" class="btn btn-primary" value="addResult">Submit</button>
+            </div>
+            
+        </form>
+
+    {% else %}
+        <h2>No Options added to Poll</h2>
+    {% endif %}
+    
+
+<p></p>
+<div id="test">Bye</div>
+
+  
+{% endblock %}
+
+{% block script %}
+    <script src="poll.js"></script>
+    <script src="{% static 'ordersorter/poll.js' %}"></script>
+
+
+
+{% endblock %}
+
+
+{% block style %}
+<link href="{% static 'ordersorter/styles.css' %}" rel="stylesheet">
+{% endblock %}
