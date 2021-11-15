@@ -36,7 +36,7 @@ DEBUG = False
 
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://cwalterbuilds.herokuapp.com/']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://cwalterbuilds.herokuapp.com/', 'https://cwalterbuilds.herokuapp.com', 'cwalterbuilds.herokuapp.com', 'cwalterbuilds.herokuapp.com/']
 
 
 # Application definition
