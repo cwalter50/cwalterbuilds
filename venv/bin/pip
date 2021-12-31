@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/chris/Google Drive/ComputerProgramming/VisualStudioProjects/CWalterBuilds/cwalterbuilds/venv/bin/python" "$0" "$@"
+'''exec' "/Users/chris/Google Drive/ComputerProgramming/VisualStudioProjects/CWalterBuilds/cwalterbuilds/venv/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
