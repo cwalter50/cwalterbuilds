@@ -180,5 +180,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Activate Django-Heroku.
-# import django_heroku
-# django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
