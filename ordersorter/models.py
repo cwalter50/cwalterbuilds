@@ -15,7 +15,6 @@ from datetime import datetime
 #     pass
 
 
-
 def randomCode():
     #I left off O because it looks like a 0
     return get_random_string(length=6, allowed_chars='ABCDEFGHIJKLMNPQRSTUVWXYZ0123456789')
