@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+# import django_heroku
 
 
 ## this is a comment on testusers
@@ -180,4 +180,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
