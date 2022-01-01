@@ -28,7 +28,7 @@ handler400 = 'myprojects.views.error_400'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("myprojects.urls")),
-    path('polls/', include('polls.urls')),
+    path("polls/", include("polls.urls")),
     path("ordersorter/", include('ordersorter.urls'))
 ]
 
