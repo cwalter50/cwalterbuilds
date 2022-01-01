@@ -20,6 +20,11 @@ def index(request):
         "questions": questions,
         "user_questions": user_questions
     })
+
+def test(request):
+    
+    return render(request, "ordersorter/test.html")
+
 def poll(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     print(request.method)

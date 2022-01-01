@@ -8,7 +8,7 @@ app_name = 'ordersorter'
 
 urlpatterns = [
     # ex: /ordersorter/
-    path("", views.index, name="index"),
+    path("", views.test, name="test"),
     path("create", views.create, name="create"),
     path("edit/<int:question_id>", views.edit, name="edit"),
     path('<int:question_id>/poll', views.poll, name='poll'),
