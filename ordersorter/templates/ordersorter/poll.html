@@ -18,7 +18,7 @@
             <div id="list">
             {% for option in question.options.all %}
                 
-                <div class="draggable" contenteditable="true" id="order" name="order">{{ option }}
+                <div class="draggable" contenteditable="false" id="order" name="order">{{ option }}
                     <input type="hidden" id="hidden" name="order" value="{{ option }}">
                 </div>
             {% endfor %}
