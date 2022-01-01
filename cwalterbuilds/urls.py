@@ -27,9 +27,9 @@ handler400 = 'myprojects.views.error_400'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("myprojects/", include("myprojects.urls")),
+    path("", include("myprojects.urls")),
     path('polls/', include('polls.urls')),
-    path("", include('ordersorter.urls'))
+    path("ordersorter/", include('ordersorter.urls'))
 ]
 
 #Add Django site authentication urls (for login, logout, password management)
