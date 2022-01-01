@@ -33,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # https://stackoverflow.com/questions/5836674/why-does-debug-false-setting-make-my-django-static-files-access-fail
 # I need it to be false so that the error pages work. 
 # It should be true to make the static pages work... 
-DEBUG = True
+DEBUG = False
 
 
 
