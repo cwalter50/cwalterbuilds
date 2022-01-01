@@ -41,6 +41,9 @@ const mouseDownHandler = function(e) {
     x = e.pageX;
     y = e.pageY-rect.top-window.scrollY;
 
+    // stop the page from scrolling when dragging.
+    document.documentElement.style.overflow = 'hidden';
+
     // Attach the listeners to `document`
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
@@ -141,6 +144,9 @@ const touchEndHandler = function() {
     x = null;
     y = null;
     draggingEle = null;
+
+    // allow the page to be scrolled again.
+    document.documentElement.style.overflow = 'auto';
 
     // Remove the handlers of `mousemove` and `mouseup`
     document.removeEventListener('touchmove', touchMoveHandler);
