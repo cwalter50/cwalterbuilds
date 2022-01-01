@@ -50,9 +50,7 @@ li {
 /* This is currently not working. try to figure out why not... I do not know precendence for CSS*/
 #result {
     font-size: x-large;
-    background-color: blue;
     font-weight: bolder;
-    color: red;
 }
 #resultName {
     text-align: center;
