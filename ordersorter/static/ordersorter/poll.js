@@ -48,6 +48,7 @@ const touchStartHandler = function(e) {
     document.addEventListener('mouseup', touchEndHandler);
     document.addEventListener('touchmove', touchMoveHandler);
     document.addEventListener('touchend', touchEndHandler);
+    document.addEventListener('touchcancel', touchEndHandler);
 };
 
 const swap = function(nodeA, nodeB) {
@@ -141,6 +142,7 @@ const touchEndHandler = function() {
     document.removeEventListener('touchend', touchEndHandler);
     document.removeEventListener('mousemove', touchMoveHandler);
     document.removeEventListener('mouseup', touchEndHandler);
+    document.removeEventListener('touchcancel', touchEndHandler);
 };
 
 
