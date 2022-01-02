@@ -134,7 +134,7 @@ const touchEndHandler = function() {
 
     // allow the page to be scrolled again.
     // document.documentElement.style.overflow = 'auto';
-    e.preventDefault()
+    // e.preventDefault()
     document.body.style.overflow = 'auto';
 
     // Remove the handlers of `mousemove` and `mouseup`
