@@ -6,8 +6,6 @@
 <div>
     <p>Create Survey Questions where responders can rank their answers. The results will be totaled, analyzed, and viewed.</p>
 </div>
-
-
 {% if user.is_authenticated %}
     <div>
         <h3>My Surveys</h3>
@@ -20,7 +18,7 @@
             <thead>
             <tr>
                 <th scope="col">Question</th>
-                <th scope="col">Options</th>
+                <th scope="col" style="text-align: right;">Options</th>
             </tr>
             </thead>
             <tbody>
@@ -34,12 +32,13 @@
                         </div>
                         </span>
                     </td>
-                    <td>
-                        <a href="{% url 'ordersorter:results' question.id %}" class="btn btn-primary">Results</a>
-                        <a href="{% url 'ordersorter:poll' question.id %}" class="btn btn-primary">Survey</a>
+                    <td style="text-align: right;">
                         {% if question.user == user %}
-                            <a href="{% url 'ordersorter:edit' question.id %}" class="btn btn-primary">Edit</a>
+                            <a href="{% url 'ordersorter:edit' question.id %}" class="btn btn-secondary btn-sm">Edit</a>
                         {% endif %}
+                        <a href="{% url 'ordersorter:poll' question.id %}" class="btn btn-primary btn-sm">Survey</a>
+                        <a href="{% url 'ordersorter:results' question.id %}" class="btn btn-info btn-sm">Results</a>
+
                     </td>
                 </tr>
             {% endfor %}
@@ -63,7 +62,7 @@
         <thead>
         <tr>
             <th scope="col">Question</th>
-            <th scope="col">Options</th>
+            <th scope="col" style="text-align: right;">Options</th>
         </tr>
         </thead>
         <tbody>
@@ -77,12 +76,12 @@
                     </div>
                     </span>
                 </td>
-                <td>
-                    <a href="{% url 'ordersorter:results' question.id %}" class="btn btn-primary">Results</a>
-                    <a href="{% url 'ordersorter:poll' question.id %}" class="btn btn-primary">Survey</a>
+                <td style="text-align: right;">
                     {% if question.user == user %}
-                        <a href="{% url 'ordersorter:edit' question.id %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'ordersorter:edit' question.id %}" class="btn btn-secondary btn-sm">Edit</a>
                     {% endif %}
+                    <a href="{% url 'ordersorter:poll' question.id %}" class="btn btn-primary btn-sm">Survey</a>
+                    <a href="{% url 'ordersorter:results' question.id %}" class="btn btn-info btn-sm">Results</a>   
                 </td>
             </tr>
         {% endfor %}
