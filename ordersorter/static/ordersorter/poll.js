@@ -57,7 +57,7 @@ const touchStartHandler = function(e) {
     // stop the page from scrolling when dragging.
     // document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
-    // e.preventDefault();
+    e.preventDefault();
 
     // Attach the listeners to `document`
     document.addEventListener('mousemove', touchMoveHandler);
