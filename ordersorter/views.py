@@ -8,8 +8,6 @@ from django.core import serializers
 
 # Create your views here.
 
-
-
 def index(request):
     questions = Question.objects.all
     user_questions = []

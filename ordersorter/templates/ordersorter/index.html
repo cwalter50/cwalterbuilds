@@ -3,23 +3,25 @@
 
 {% block body %}
 <h1>OrderSorter</h1>
+<div>
+    <p>Create Survey Questions where responders can rank their answers. The results will be totaled, analyzed, and viewed.</p>
+</div>
+
 
 {% if user.is_authenticated %}
-
-
+<div>
+    <h3>My Surveys</h3>
+</div>
 <div>
     <a href="{% url 'ordersorter:create' %}" class="btn btn-primary">Create New Survey</a>
 </div>
 {% else %}
 <div>
-    <p>You be signed in to create a survey</p>
+    <p>You must be signed in to create surveys</p>
 </div>
 
 {% endif %}
 
-<div>
-    <h3>My Surveys</h3>
-</div>
 <ul class="list-group">
     {% if user_questions %}
         <div class="card-columns">
@@ -46,6 +48,7 @@
 <div>
     <h3>Community Surveys</h3>
 </div>
+
 <ul class="list-group">
     {% if questions %}
         <div class="card-columns">
