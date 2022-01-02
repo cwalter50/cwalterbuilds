@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Query all items
     [].slice.call(list.querySelectorAll('.draggable')).forEach(function(item) {
-        item.addEventListener('mousedown', touchStartHandler);
+        // item.addEventListener('mousedown', touchStartHandler);
         item.addEventListener('touchstart', touchStartHandler, false);
     });
 
