@@ -26,9 +26,25 @@ let y = 0;
 let placeholder;
 let isDraggingStarted = false;
 
+const mouseDownHandler = function(e) {
+    print("mouseDownTriggered");
+};
+
+const mouseMoveHandler = function(e) {
+    print("mouseMoveTriggered");
+};
+
+const mouseUpHandler = function(e) {
+    print("mouseUpTriggered");
+};
+
+const touchCancelHandler = function(e) {
+    print("touchCancelTriggered");
+};
 
 
 const touchStartHandler = function(e) {
+    print("touchStart Triggered");
     draggingEle = e.target;
     draggingEle.style.backgroundColor = 'Gray';
 
@@ -41,14 +57,14 @@ const touchStartHandler = function(e) {
     // stop the page from scrolling when dragging.
     // document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
-    e.preventDefault();
+    // e.preventDefault();
 
     // Attach the listeners to `document`
-    document.addEventListener('mousemove', touchMoveHandler);
-    document.addEventListener('mouseup', touchEndHandler);
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
     document.addEventListener('touchmove', touchMoveHandler);
     document.addEventListener('touchend', touchEndHandler);
-    document.addEventListener('touchcancel', touchEndHandler);
+    document.addEventListener('touchcancel', touchCancelHandler);
 };
 
 const swap = function(nodeA, nodeB) {
@@ -63,6 +79,7 @@ const swap = function(nodeA, nodeB) {
 };
 
 const touchMoveHandler = function(e) {
+    print("touchMove Triggered");
 
     const draggingRect = draggingEle.getBoundingClientRect();
 
@@ -118,6 +135,7 @@ const touchMoveHandler = function(e) {
 };
 
 const touchEndHandler = function() {
+    print("touchEnd Triggered");
     // Remove the placeholder
     placeholder && placeholder.parentNode.removeChild(placeholder);
     // Reset the flag
