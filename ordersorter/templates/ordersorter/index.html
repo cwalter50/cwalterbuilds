@@ -9,12 +9,45 @@
 
 
 {% if user.is_authenticated %}
-<div>
-    <h3>My Surveys</h3>
-</div>
-<div>
-    <a href="{% url 'ordersorter:create' %}" class="btn btn-primary">Create New Survey</a>
-</div>
+    <div>
+        <h3>My Surveys</h3>
+    </div>
+    <div class="createSurveyButton">
+        <a href="{% url 'ordersorter:create' %}" class="btn btn-primary">Create New Survey</a>
+    </div>
+    {% if user_questions %}
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th scope="col">Question</th>
+                <th scope="col">Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for question in user_questions.all %}
+                <tr>
+                    <td>
+                        <span>
+                        {{ question }}
+                        <div class="text-muted">
+                            {{ question.description }}
+                        </div>
+                        </span>
+                    </td>
+                    <td>
+                        <a href="{% url 'ordersorter:results' question.id %}" class="btn btn-primary">Results</a>
+                        <a href="{% url 'ordersorter:poll' question.id %}" class="btn btn-primary">Survey</a>
+                        {% if question.user == user %}
+                            <a href="{% url 'ordersorter:edit' question.id %}" class="btn btn-primary">Edit</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No surveys are available.</p>
+    {% endif %}
 {% else %}
 <div>
     <p>You must be signed in to create surveys</p>
@@ -22,58 +55,43 @@
 
 {% endif %}
 
-<ul class="list-group">
-    {% if user_questions %}
-        <div class="card-columns">
-        {% for question in user_questions.all %}
-            <div class="card" style="background-color: rgba(255, 255, 255, .10);">
-                <div class="card-body">
-                <h5 class="card-title">{{ question }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ question.description }}</h6>
-                <p class="card-text">Fill this in with some results about the survey</p>
-                <a href="{% url 'ordersorter:results' question.id %}" class="card-link">Results</a>
-                <a href="{% url 'ordersorter:poll' question.id %}" class="card-link">Survey</a>
-                <a href="{% url 'ordersorter:edit' question.id %}" class="card-link">Edit</a>
-                </div>
-            </div>
-            
-        {% endfor %}
-        </div>
-    {% else %}
-        <p>No user polls are available.</p>
-    {% endif %}
-    
-</ul>
-
 <div>
     <h3>Community Surveys</h3>
 </div>
-
-<ul class="list-group">
-    {% if questions %}
-        <div class="card-columns">
+{% if questions %}
+    <table class="table table-sm">
+        <thead>
+        <tr>
+            <th scope="col">Question</th>
+            <th scope="col">Options</th>
+        </tr>
+        </thead>
+        <tbody>
         {% for question in questions.all %}
-            <div class="card" style="background-color: rgba(255, 255, 255, .10);">
-                <div class="card-body">
-                <h5 class="card-title">{{ question }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ question.description }}</h6>
-                <p class="card-text">Fill this in with some results about the survey</p>
-                <a href="{% url 'ordersorter:results' question.id %}" class="card-link">Results</a>
-                <a href="{% url 'ordersorter:poll' question.id %}" class="card-link">Survey</a>
-                {% if question.user == user %}
-                <a href="{% url 'ordersorter:edit' question.id %}" class="card-link">Edit</a>
-                {% endif %}
-
-                </div>
-            </div>
-            
+            <tr>
+                <td>
+                    <span>
+                    {{ question }}
+                    <div class="text-muted">
+                        {{ question.description }}
+                    </div>
+                    </span>
+                </td>
+                <td>
+                    <a href="{% url 'ordersorter:results' question.id %}" class="btn btn-primary">Results</a>
+                    <a href="{% url 'ordersorter:poll' question.id %}" class="btn btn-primary">Survey</a>
+                    {% if question.user == user %}
+                        <a href="{% url 'ordersorter:edit' question.id %}" class="btn btn-primary">Edit</a>
+                    {% endif %}
+                </td>
+            </tr>
         {% endfor %}
-        </div>
-    {% else %}
-        <p>No polls are available.</p>
-    {% endif %}
-    
-</ul>
+        </tbody>
+    </table>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
 
 
 

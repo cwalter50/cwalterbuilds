@@ -89,3 +89,15 @@ li {
     } */
 }
 
+.createSurveyButton {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/*
+ this is used to align the last row in ordersorter table in index.html to the far right.
+*/
+table tr td:last-child {
+    text-align: right;
+}
+

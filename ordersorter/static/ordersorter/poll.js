@@ -26,21 +26,6 @@ let y = 0;
 let placeholder;
 let isDraggingStarted = false;
 
-// const mouseDownHandler = function(e) {
-//     console.log("mouseDownTriggered");
-// };
-
-// const mouseMoveHandler = function(e) {
-//     console.log("mouseMoveTriggered");
-// };
-
-// const mouseUpHandler = function(e) {
-//     console.log("mouseUpTriggered");
-// };
-
-// const touchCancelHandler = function(e) {
-//     console.log("touchCancelTriggered");
-// };
 
 
 const touchStartHandler = function(e) {
