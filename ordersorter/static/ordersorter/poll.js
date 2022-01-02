@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Query all items
     [].slice.call(list.querySelectorAll('.draggable')).forEach(function(item) {
-        // item.addEventListener('mousedown', touchStartHandler);
+        item.addEventListener('mousedown', touchStartHandler);
         item.addEventListener('touchstart', touchStartHandler, false);
     });
 
@@ -40,10 +40,12 @@ const touchStartHandler = function(e) {
 
     // stop the page from scrolling when dragging.
     document.documentElement.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
-    e.preventDefault();
+    // document.body.style.overflow = 'hidden';
+    // e.preventDefault();
 
     // Attach the listeners to `document`
+    document.addEventListener('mousemove', touchMoveHandler);
+    document.addEventListener('mouseup', touchEndHandler);
     document.addEventListener('touchmove', touchMoveHandler);
     document.addEventListener('touchend', touchEndHandler);
 };
@@ -131,12 +133,14 @@ const touchEndHandler = function() {
 
     // allow the page to be scrolled again.
     document.documentElement.style.overflow = 'auto';
-    e.preventDefault()
-    document.body.style.overflow = 'auto';
+    // e.preventDefault()
+    // document.body.style.overflow = 'auto';
 
     // Remove the handlers of `mousemove` and `mouseup`
     document.removeEventListener('touchmove', touchMoveHandler);
     document.removeEventListener('touchend', touchEndHandler);
+    document.removeEventListener('mousemove', touchMoveHandler);
+    document.removeEventListener('mouseup', touchEndHandler);
 };
 
 
