@@ -26,25 +26,25 @@ let y = 0;
 let placeholder;
 let isDraggingStarted = false;
 
-const mouseDownHandler = function(e) {
-    print("mouseDownTriggered");
-};
+// const mouseDownHandler = function(e) {
+//     console.log("mouseDownTriggered");
+// };
 
-const mouseMoveHandler = function(e) {
-    print("mouseMoveTriggered");
-};
+// const mouseMoveHandler = function(e) {
+//     console.log("mouseMoveTriggered");
+// };
 
-const mouseUpHandler = function(e) {
-    print("mouseUpTriggered");
-};
+// const mouseUpHandler = function(e) {
+//     console.log("mouseUpTriggered");
+// };
 
-const touchCancelHandler = function(e) {
-    print("touchCancelTriggered");
-};
+// const touchCancelHandler = function(e) {
+//     console.log("touchCancelTriggered");
+// };
 
 
 const touchStartHandler = function(e) {
-    print("touchStart Triggered");
+    // console.log("touchStart Triggered");
     draggingEle = e.target;
     draggingEle.style.backgroundColor = 'Gray';
 
@@ -60,11 +60,11 @@ const touchStartHandler = function(e) {
     // e.preventDefault();
 
     // Attach the listeners to `document`
-    document.addEventListener('mousemove', mouseMoveHandler);
-    document.addEventListener('mouseup', mouseUpHandler);
+    document.addEventListener('mousemove', touchMoveHandler);
+    document.addEventListener('mouseup', touchEndHandler);
     document.addEventListener('touchmove', touchMoveHandler);
     document.addEventListener('touchend', touchEndHandler);
-    document.addEventListener('touchcancel', touchCancelHandler);
+    document.addEventListener('touchcancel', touchEndHandler);
 };
 
 const swap = function(nodeA, nodeB) {
@@ -79,7 +79,7 @@ const swap = function(nodeA, nodeB) {
 };
 
 const touchMoveHandler = function(e) {
-    print("touchMove Triggered");
+    console.log("touchMove Triggered");
 
     const draggingRect = draggingEle.getBoundingClientRect();
 
@@ -135,7 +135,7 @@ const touchMoveHandler = function(e) {
 };
 
 const touchEndHandler = function() {
-    print("touchEnd Triggered");
+    console.log("touchEnd Triggered");
     // Remove the placeholder
     placeholder && placeholder.parentNode.removeChild(placeholder);
     // Reset the flag
