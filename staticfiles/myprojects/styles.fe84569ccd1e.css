@@ -1,12 +1,13 @@
 body {
     padding: 10px;
-    /* background-color: rgba(0, 0, 0, .1);
-    text-align: left; */
+    background-color: rgba(0, 0, 0, .1);
+    text-align: left;
 
 }
 
-
-
+h1 {
+  color: rgb(181, 20, 44);
+}
 
 
 

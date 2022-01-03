@@ -2,12 +2,53 @@
 {% load static %}
 {% block body %}
     <h1>My Projects</h1>
-
-        
-
-    
     <div>
         <a href="https://cwalter50.github.io/">My Projects</a>
     </div>
+
+    <div class="row">
+        <div class="col-sm-4 py-2">
+            <div class="card h-100" style="text-align: center;">
+                <div style="text-align: center;">
+                <img class="card-img-top" style="max-width: 8rem;" src="{% static 'myprojects/images/MemoriesTreeLogo.png' %}" alt="MemoriesTreeLogo">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">MemoriesTree</h5>
+                    <p class="card-text text-muted">iOS Journaling App. Perfect for journaling and sharing your memories or keeping them private. First Firebase App.</p>
+                    <a href="https://apps.apple.com/us/app/memoriestree/id1263250242?ls=1" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Download MemoriesTree</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 py-2">
+            <div class="card h-100" style="text-align: center;">
+                <div style="text-align: center;">
+                <img class="card-img-top" style="max-width: 8rem;" src="{% static 'myprojects/images/OutOfTimeLogo.png' %}" alt="MemoriesTreeLogo">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">OutOfTime</h5>
+                    <p class="card-text text-muted">iOS and tvOS Family fun word game. Take turns listing items in a certain category before the music stops. Play music from your device in the game, In-App Purchases, and more.</p>
+                    <a href="https://apps.apple.com/us/app/outoftime/id1333852115" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Download OutOfTime</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 py-2">
+            <div class="card h-100" style="text-align: center;">
+                <div style="text-align: center;">
+                    <img class="card-img-top" style="max-width: 8rem;" src="{% static 'myprojects/images/SlidearooLogo.png' %}" alt="MemoriesTreeLogo">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Slidearoo</h5>
+                    <p class="card-text text-muted">iOS and tvOS App. Play game of Fifteen slide puzzles with numbers or pictures. You can even play with your own photos. Keep your stats and compete with others. Cloudkit, In-App Purchase, Swift.</p>
+                    <a href="https://apps.apple.com/us/app/slidearoo/id1395435780" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Download Slidearoo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'myprojects/styles.css' %}">
 
 {% endblock %}

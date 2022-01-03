@@ -149,10 +149,29 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+# if DEBUG:
+#     MEDIA_URL = '/media/'
+#     STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static','static-only')
+#     MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static','media')
+#     STATICFILES_DIRS = (os.path.join(os.path.dirname(BASE_DIR),'static'),)
+
+# PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# # STATIC_URL = '/static/'
+# STATIC_ROOT = PROJECT_DIR + '/static/'
+
+
+
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, "static"),
 # ]
 
+# this was added because i needed to run python3 manage.py collectstatic with every change to css file. It was very annoying.
+# this should fix the problem so that I do not need to make that call with each change.
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "static"),
+#     'static/',
+# )
 
 
 # remove STATIC_ROOT

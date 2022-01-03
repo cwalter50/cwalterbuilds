@@ -16,13 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+# from django.conf.urls.static import static
+# from django.conf import settings
+
+
+
+
 # These are used for custom error pages...
 
 handler404 = 'myprojects.views.error_404'
 handler500 = 'myprojects.views.error_500'
 handler403 = 'myprojects.views.error_403'
 handler400 = 'myprojects.views.error_400'
-
 
 
 urlpatterns = [
@@ -32,11 +38,23 @@ urlpatterns = [
     path("ordersorter/", include('ordersorter.urls'))
 ]
 
+# if settings.DEBUG:
+#    urlpatterns += static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)
+#    urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+
+
+# this is added so that I do not have to call python3 manage.py collectstatic with every change to css files.
+# if settings.DEBUG:
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
 #Add Django site authentication urls (for login, logout, password management)
 
 urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+
 
 
 

@@ -1,14 +1,17 @@
 body {
     padding: 10px;
-    /* background-color: rgba(0, 0, 0, .1);
-    text-align: left; */
-
+    background-color: rgba(0, 0, 0, .5);
+    text-align: center;
+    color: brown;
 }
 
+p {
+  color: rgb(4, 32, 240);
+}
 
-
-
-
+h1 {
+  color: coral;
+}
 
 
 /* Headers CSS */
