@@ -1,16 +1,50 @@
 {% extends "myprojects/layout.html" %}
 
+{% load static %}
+
+{% block style %}
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'myprojects/styles.css' %}"> -->
+<!-- <link href="{% static 'myprojects/styles.css' %}" rel="stylesheet"> -->
+
+<style>
+.bg-img {
+  min-height: 100%;
+  background-image: url("{% static  'myprojects/images/NightSky-mohammad-alizade.jpg'%}");
+  /* background-image: url("{% static  'myprojects/images/SimplePlant-pawel-czerwinski.jpg'%}"); */
+  background-repeat: no-repeat;
+  /* // this is the key to make sure the picture is the full background */
+  width: 100%;
+  background-size: 100% 100%; 
+  color: ghostwhite;
+  resize: both;
+  overflow: scroll;
+  padding: 100px;
+  text-shadow: 2px 2px black;
+  
+  
+
+  /* margin-top: 50px; */
+}
+
+</style>
+{% endblock %}
+
 {% block body %}
 
     <main class="px-3 text-center">
-      
-
-      <h1>CWalterBuilds</h1>
-      <p class="lead">I build things and teach others to build</p>
-      <p class="lead">
-        <a href="{% url 'myprojects:myprojects' %}" class="btn btn-lg btn-secondary fw-bold border-dark bg-dark">Learn more</a>
-      </p>
-
+      <div class="bg-img">
+        <h1>CWalterBuilds</h1>
+        <p>I build things and teach others to build.</p>
+        <p>
+          <a href="{% url 'myprojects:myprojects' %}" class="btn btn-lg btn-info fw-bold border-dark bg-info">Learn more</a>
+        </p>
+        
+      </div>
+         
     </main>
     
 {% endblock %}
+
+
+
+

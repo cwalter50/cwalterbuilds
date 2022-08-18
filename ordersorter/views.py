@@ -13,7 +13,7 @@ def index(request):
     user_questions = []
     if request.user.is_authenticated:
         user_questions = Question.objects.filter(user=request.user)
-        print(user_questions)
+        # print(user_questions)
     return render(request, "ordersorter/index.html", {
         "questions": questions,
         "user_questions": user_questions

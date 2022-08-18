@@ -1,0 +1,27 @@
+{% extends "myprojects/layout.html" %}
+
+{% load static %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block body %}
+
+    <main class="px-3 text-center">
+      <div>
+        <h1>Test</h1>
+        <p>Does this work?</p>
+        <p>
+          <a href="{% url 'myprojects:myprojects' %}" class="btn btn-lg btn-info fw-bold border-dark bg-info">Learn more</a>
+        </p>
+        
+      </div>
+         
+    </main>
+    
+{% endblock %}
+
+
+
+

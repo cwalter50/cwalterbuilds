@@ -35,7 +35,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("myprojects.urls")),
     path("polls/", include("polls.urls")),
-    path("ordersorter/", include('ordersorter.urls'))
+    path("ordersorter/", include('ordersorter.urls')),
+    path("birthdaycountdown/", include('birthdaycountdown.urls')),
+    # path("birthdaycountdown/", include('birthdaycountdown.urls'))
 ]
 
 # if settings.DEBUG:

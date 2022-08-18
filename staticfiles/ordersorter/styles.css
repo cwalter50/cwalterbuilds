@@ -1,3 +1,6 @@
+body {
+    padding: 10px;
+}
 /* This is for ordersorter to change the order of items */
 .draggable, .placeholder {
     cursor: move;
