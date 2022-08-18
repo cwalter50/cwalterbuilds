@@ -2,26 +2,53 @@
 
 {% load static %}
 
-{% block style %}
-
-{% endblock %}
-
 {% block body %}
 
     <main class="px-3 text-center">
       <div>
         <h1>Test</h1>
         <p>Does this work?</p>
-        <p>
-          <a href="{% url 'myprojects:myprojects' %}" class="btn btn-lg btn-info fw-bold border-dark bg-info">Learn more</a>
-        </p>
-        
       </div>
          
     </main>
+
+
+    <!-- Display the countdown timer in an element -->
+<p id="demo"></p>
+
+
+<p>Date: <input type="text" id="datepicker"></p>
+
+<p id="result">Results: </p>
+
+<button onclick="count()">Count</button>
+  
     
 {% endblock %}
 
+{% block script %}
+
+    <script src="{% static 'birthdaycountdown/countdown.js' %}"></script>
+
+
+{% endblock %}
+
+<script>
+    let counter = 0;
+        
+    function count() {
+        counter++;
+        document.querySelector('h1').innerHTML = counter;
+        
+        if (counter % 10 === 0) {
+            alert(`Count is now ${counter}`);
+        }
+    }
+
+</script>
 
 
 
+{% block style %}
+
+{% endblock %}

@@ -25,18 +25,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-r*t6z2u@1z7_k3oo+h-mw()e=x48nq563i5pp0(m-m!@sxgsbc'
-
+# SECRET_KEY = 'django-insecure-r*t6z2u@1z7_k3oo+h-mw()e=x48nq563i5pp0(m-m!@sxgsbc'
+# SECRET_KEY = 'django-insecure-b49d5b7f-69ab-4fe4-872d-ff331e2cdfdd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # When Debug is true static files load... When it is false static files dont load. 
 # https://stackoverflow.com/questions/5836674/why-does-debug-false-setting-make-my-django-static-files-access-fail
 # I need it to be false so that the error pages work. 
 # It should be true to make the static pages work... 
-# DEBUG = False
-DEBUG = True
-
-
+DEBUG = False
+# DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://cwalterbuilds.herokuapp.com/', 'https://cwalterbuilds.herokuapp.com', 'cwalterbuilds.herokuapp.com', 'cwalterbuilds.herokuapp.com/']
 
