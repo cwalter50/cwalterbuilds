@@ -41,16 +41,18 @@ function count() {
         // Your birthday will happen in this calendar year
         nextBDay.setDate(bDayOfMonth);
         nextBDay.setMonth(bmonth);
+        
     }
     else if (m === 0 && bDayOfMonth - now.getDate() === 0) {
         // Today is your birthday
-
+        
     }
     else {
         // Your birthday already happened this calendar year and your next birthday will be next year.
         nextBDay.setDate(bDayOfMonth);
         nextBDay.setMonth(bmonth);
         nextBDay.setFullYear(now.getFullYear() + 1);
+        
     }
 
     // let result = `Next Birthday: ${nextBDay.toDateString()} BirthYear: ${year}`;
@@ -65,15 +67,15 @@ function count() {
     document.getElementById("bdaystats").style.display = "block"; // show stats
     document.querySelector("#nextbday").innerHTML = "Next Birthday: " + nextBDay.toDateString();
     document.querySelector("#age").innerHTML = "Age: " + age;
-    document.querySelector("#sleeps").innerHTML = "# of sleeps until next Birthday: " + sleeps;
-    document.querySelector("#totaldays").innerHTML = "Total Days living: " + totalDays;
-    document.querySelector("#totalweeks").innerHTML = "Total Weeks living: " + totalWeeks;
+    document.querySelector("#sleeps").innerHTML = "# of Sleeps 😴 until next Birthday: " + sleeps;
+    document.querySelector("#totaldays").innerHTML = "Total Days Living: " + totalDays;
+    document.querySelector("#totalweeks").innerHTML = "Total Weeks Living: " + totalWeeks;
 
     // document.querySelector("#bdaystats").innerHTML = "Total Days: " + totalDays + " # of Sleeps: " + sleeps;
     // document.getElementById("bdaystats").style.display = "none"; // hide stats
     // document.getElementById("bdaystats").style.display = "block"; // show stats
-
     setCountdown();
+    
 }
 
 function getAge(bDate)
@@ -97,6 +99,7 @@ function getTotalDays(birthday) {
     let now = new Date().getTime();
     let distance = now - birthday.getTime();
     let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
     return `${days}`;
 
 }
@@ -119,7 +122,8 @@ function getNumberOfSleeps() {
     var distance = countDownDate - now;
 
     // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var days = Math.ceil(distance / (1000 * 60 * 60 * 24));
+    
     return `${days}`;
 }
 
@@ -142,13 +146,13 @@ function setCountdown(){
         // Display the result in the element with id="demo"
         // document.getElementById("demo").innerHTML = days + "d " + hours + "h "
         // + minutes + "m " + seconds + "s ";
-        document.getElementById("countdown").innerHTML = "Birthday Countdown:" + days + "d " + hours + "h "
+        document.getElementById("countdown").innerHTML = "Birthday Countdown: " + days + "d " + hours + "h "
         + minutes + "m " + seconds + "s ";
 
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("demo").innerHTML = "🎈🎉🎉 Today is your Birthday 🎂 Happy Birthday 🎉🎉🎈";
+            document.getElementById("countdown").innerHTML = "🎈🎉🎉 Today is your Birthday 🎂 Happy Birthday 🎉🎉🎈";
         }
     }, 1000);
 }
