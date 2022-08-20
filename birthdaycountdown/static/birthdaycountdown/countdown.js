@@ -58,9 +58,10 @@ function count() {
     // let result = `Next Birthday: ${nextBDay.toDateString()} BirthYear: ${year}`;
 
     // document.querySelector("#results").innerHTML = result;
-
+    let totalHours = getTotalHours(bdate);
     let totalDays = getTotalDays(bdate);
     let totalWeeks = getTotalWeeks(bdate);
+    let totalMonths = getTotalMonths(bdate);
     let sleeps = getNumberOfSleeps();
     let age = getAge(bdate);
 
@@ -68,8 +69,10 @@ function count() {
     document.querySelector("#nextbday").innerHTML = "Next Birthday: " + nextBDay.toDateString();
     document.querySelector("#age").innerHTML = "Age: " + age;
     document.querySelector("#sleeps").innerHTML = "# of Sleeps 😴 until next Birthday: " + sleeps;
+    document.querySelector("#totalhours").innerHTML = "Total Hours Living: " + totalHours;
     document.querySelector("#totaldays").innerHTML = "Total Days Living: " + totalDays;
     document.querySelector("#totalweeks").innerHTML = "Total Weeks Living: " + totalWeeks;
+    document.querySelector("#totalmonths").innerHTML = "Total Months Living: " + totalMonths;
 
     // document.querySelector("#bdaystats").innerHTML = "Total Days: " + totalDays + " # of Sleeps: " + sleeps;
     // document.getElementById("bdaystats").style.display = "none"; // hide stats
@@ -94,6 +97,16 @@ function getAge(bDate)
 
 }
 
+function getTotalHours(birthday) {
+
+    let now = new Date().getTime();
+    let distance = now - birthday.getTime();
+    let hours = Math.floor(distance / (1000 * 60 * 60));
+
+    return `${hours}`;
+
+}
+
 function getTotalDays(birthday) {
 
     let now = new Date().getTime();
@@ -110,6 +123,15 @@ function getTotalWeeks(birthday) {
 
     let weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
     return `${weeks}`;
+}
+
+function getTotalMonths(birthday) {
+    let now = new Date();
+    let months = (now.getFullYear() - birthday.getFullYear()) * 12;
+    let extra = now.getMonth() - birthday.getMonth();
+    months += extra;
+
+    return `${months}`;
 }
 
 function getNumberOfSleeps() {
