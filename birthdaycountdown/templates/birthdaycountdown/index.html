@@ -6,34 +6,31 @@
 
     <main class="px-3 text-center">
       <div>
-        <h1>Test</h1>
-        <p>When is your birthday?</p>
+        <h1>🎂 When is your birthday? 🎉</h1>
         <p>Date: <input type="text" id="datepicker"></p>
-        <button id="thebutton">Count</button>
-        <p id="results">Results: </p>
-
-
+        <button id="thebutton">Countdown</button>
+        <!-- <p id="results">Results: </p> -->
+        <div id="bdaystats">
+            <p id="nextbday">Next Birthday:  </p>
+            <p id="countdown">Countdown: </p>
+            <p id="age">Age:  </p>
+            <p id="sleeps"># of sleeps until your birthday: </p>
+            <p id="totaldays">Total Days: </p>
+            <p id="totalweeks">Total Weeks: </p>
+            <!-- <p id="leapyears">Leap Years: </p> -->
+        </div>
 
         <!-- Display the countdown timer in an element -->
         <p id="demo"></p>
       </div>
          
     </main>
-
-
-
-
-
-
-
-  
     
 {% endblock %}
 
 {% block script %}
 
     <script src="{% static 'birthdaycountdown/countdown.js' %}"></script>
-
 
 {% endblock %}
 

@@ -1,4 +1,8 @@
 
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector("#thebutton").onclick = hello
+    
+});
 
 
 // Date Picker
@@ -9,6 +13,7 @@ $(
   );
 
 
+//   document.querySelector("#results").innerHTML = "theDate";
 
 // Set the date we're counting down to
 var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
@@ -39,9 +44,12 @@ var x = setInterval(function() {
   }
 }, 1000);
 
+let counter = 0;  
 
-var theDate = document.getElementById("datepicker").innerHTML;
-document.getElementById("result").innerHTML = "theDate";
+function count() {
+    console.log("Hello");
+
+}
 
 
 
@@ -56,31 +64,5 @@ function hello() {
         header.innerHTML = 'Hello!';
     }     
 }
-
-let counter = 0;  
-  
-function count() {
-    counter++;
-    document.querySelector('h1').innerHTML = counter;
-    
-    if (counter % 10 === 0) {
-        alert(`Count is now ${counter}`);
-    }
-}
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     document.querySelector('#mybutton1').onclick = count;
-// });
-
-
-
-
-
-
-
-
-
-
 
 
